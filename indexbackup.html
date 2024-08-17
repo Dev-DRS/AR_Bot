@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Digital Rhombus Studios PVT LTD</title>
+    <meta charset="utf-8">
+    <meta name="description" content="<model-viewer> template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" href="./styles.css" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+   
+
+    <!-- <model-viewer> HTML element -->
+    <model-viewer id="model-viewer" src="3.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="1">
+      <div class="progress-bar hide" slot="progress-bar">
+        <div class="update-bar"></div>
+      </div>
+      <button slot="ar-button" id="ar-button">
+        View in your space
+      </button>
+      <div id="ar-prompt">
+        <img src="ar_hand_prompt.png">
+      </div>
+
+
+      <div id="content">
+        <div id="mySidenav" class="sidenav" >
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <a class="ar-object" id="1" href="#">item_1</a>
+          <a class="ar-object" id="2" href="#">item_2</a>
+          <a class="ar-object" id="3" href="#">item_3</a>
+          <a class="ar-object" id="4" href="#">item_4</a>
+        </div>
+  
+        <div id="container" style="position: fixed;"></div>
+  
+        <span style="font-size:30px;cursor:pointer;position: absolute;" onclick="openNav()">&#9776; open</span>
+  
+        <button type="button" id="place-button">PLACE</button>
+      </div>
+
+
+
+      <!-- Overlay Buttons -->
+      <div class="ar-buttons" id="ar-buttons" style="display: none;">
+        <button id="toggle-animation">Toggle Animation</button>
+        <button id="change-color">Change Color</button>
+      </div>
+    </model-viewer>
+    
+    <script src="script.js"></script>
+    <!-- Loads <model-viewer> for browsers: -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+
+    <script>
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+      }
+
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+      }
+      
+      $(document).ready(function() {
+        let selectedOption = null;
+
+        $(".ar-object").click(function() {
+          closeNav();
+          var modelId = $(this).attr("id");
+          selectedOption = modelId;
+          var modelViewer = document.querySelector("#model-viewer");
+          
+          // Update the src attribute based on the clicked item
+          switch (modelId) {
+            case "1":
+              modelViewer.src = "3.glb";
+              break;
+            case "2":
+              modelViewer.src = "2.glb";
+              break;
+            case "3":
+              modelViewer.src = "5.glb";
+              break;
+            case "4":
+              modelViewer.src = "4.glb";
+              modelViewer.animationName = '';
+              break;
+          }
+        });
+
+        // Show UI buttons when clicking AR view in option 4
+        $("#model-viewer").on("click", function() {
+          if (selectedOption === "4") {
+            $("#ar-buttons").fadeIn();
+          }
+        });
+
+        // Toggle Animation Button
+        $('#toggle-animation').click(function() {
+          const modelViewer = document.querySelector("#model-viewer");
+          if (modelViewer.animationName) {
+            modelViewer.animationName = ''; // Stops the animation
+          } else {
+            modelViewer.animationName = 'explode'; // Start a specific animation
+          }
+        });
+
+        // Change Color Button
+        $('#change-color').click(function() {
+          const modelViewer = document.querySelector("#model-viewer");
+          const material = modelViewer.model.materials[0];
+          material.pbrMetallicRoughness.setBaseColorFactor([Math.random(), Math.random(), Math.random(), 1]);
+        });
+      });
+    </script>
+    
+    <style>
+      /* Style for AR overlay buttons */
+    
+      .ar-buttons {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+      }
+
+      .ar-buttons button {
+        background-color: #2196F3;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .ar-buttons button:hover {
+        background-color: #0b7dda;
+      }
+    </style>
+  </body>
+</html>
