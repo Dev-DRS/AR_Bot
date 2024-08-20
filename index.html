@@ -10,11 +10,7 @@
   </head>
   <body>
     <!-- <model-viewer> HTML element -->
-<<<<<<< HEAD
     <model-viewer id="model-viewer"  ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" shadow-intensity="1" autoplay>
-=======
-    <model-viewer id="model-viewer" src="model.glb" ar ar-modes="webxr scene-viewer quick-look" animation-name="" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="1" autoplay >
->>>>>>> parent of 7c12b77 (Update index.html)
       <div class="progress-bar hide" slot="progress-bar">
         <div class="update-bar"></div>
       </div>
@@ -56,7 +52,6 @@
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
 
     <script>
-<<<<<<< HEAD
       $(document).ready(function() {
 
        
@@ -71,40 +66,6 @@
             modelViewer.src="3.glb";
             // Prompt user to enter AR mode if allowed by the browser
             modelViewer.activateAR();
-=======
-      function openNav() {
-        document.getElementById("mySidenav").style.width = "250px";
-      }
-
-      function closeNav() {
-        document.getElementById("mySidenav").style.width = "0";
-      }
-      
-      $(document).ready(function() {
-        let selectedOption = null;
-
-        $(".ar-object").click(function() {
-          closeNav();
-          var modelId = $(this).attr("id");
-          selectedOption = modelId;
-          var modelViewer = document.querySelector("#model-viewer");
-          
-          // Update the src attribute based on the clicked item
-          switch (modelId) {
-            case "1":
-              modelViewer.src = "3.glb";
-              break;
-            case "2":
-              modelViewer.src = "2.glb";
-              break;
-            case "3":
-              modelViewer.src = "5.glb";
-              break;
-            case "4":
-              modelViewer.src = "4.glb";
-              // modelViewer.animationName = "CubeAction";
-              break;
->>>>>>> parent of 7c12b77 (Update index.html)
           }
         });
 
