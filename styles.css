@@ -364,7 +364,7 @@ body {
   font-size: 18px;
 }
 #responseText-area{
-  z-index: 1000;
+  z-index: 1500;
   position: fixed;
   bottom: 10px;
   left: 10px;
@@ -384,7 +384,7 @@ body {
 }
 
 .recording-area {
-  z-index: 1000;
+  z-index: 1500;
   position: fixed;
   bottom: 0;
   right: 0;
