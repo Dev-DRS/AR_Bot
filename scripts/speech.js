@@ -5,11 +5,9 @@ const audioConfig = SpeechSDK.AudioConfig.fromDefaultMicrophoneInput();
 const recognizer = new SpeechSDK.SpeechRecognizer(speechConfig,audioConfig);
 const menu = document.getElementById('menu');
 const botIcon = document.querySelector('#botIcon');
-const screenParent = document.getElementById('screen-parent');
+
 const infoScreen = document.querySelector('#info-screen');
 const helpIcon = document.getElementById('help-icon');
-const avatarSelectorParent = document.getElementById('avatar-selector-parent');
-const avatarSelector = document.getElementById('avatar-selector');
 const avatarVoiceSelector = document.getElementById('avatar-voice-parent');
 const avatarVoiceList = document.getElementById('avatar-voice'); 
 const selectedVoice = document.getElementById('selected-voice'); 
@@ -18,11 +16,8 @@ const responseTextArea = document.getElementById('responseText-area');
 const menuOpen = document.getElementById('menu-open');
 const settingIcon = document.getElementById('setting-icon');
 const menuClose = document.getElementById('menu-close');
-const avatarGender = document.getElementById('avatar-gender');
 const loading = document.getElementById('loading-icon');
 const recBtn = document.querySelector('#recBtn');
-const stageToggleSwitchParent = document.querySelector('#stage-toggle-parent');
-const stageToggleSwitch = document.querySelector('#stage-toggle');
 const recBtn3 = document.getElementById('recording');
 const resText = document.getElementById('responseText');
 recBtn3.innerHTML = "Recording start";
@@ -89,12 +84,14 @@ const recognizeSpeech = () => {
 recBtn.addEventListener('click', () => {
   console.log('Recording button clicked!');       
   recBtn3.innerHTML = "Recording start";              
-  if(speech.animationState){
-      if(speech.animationState !== "idle"){
-          speech.playAnimation("idle", null)
-      }
-      speech.stopSpeaking();    
-  }
+  // animation connections here for model viewer -------------------------------------------------------------------------------------------------------------------------
+  
+  // if(speech.animationState){
+  //     if(speech.animationState !== "idle"){
+  //         speech.playAnimation("idle", null)
+  //     }
+  //     speech.stopSpeaking();    
+  // }
   botResponseUIReset(); 
   
   const botIcon = document.querySelector('#botIcon');
@@ -125,28 +122,27 @@ const botResponseUIReset = () => {
   botIcon.style.display = 'none'       
 }
 
-avatarSelector.addEventListener('change', (event) => {        
-  const selectedAvatar = event.target.value;           
-  if(selectedAvatar != 0){   
-      recordingArea.style.display = "none"
-      responseTextArea.style.display = "none"        
-      botResponseUIReset();
-      recBtn3.innerHTML = "Recording start";
-      recBtn.style.display = 'inline-block';
-      if(speech){
-          speech.stopSpeaking();
-      } 
-      avatarSelector.disabled = true; 
-      loading.style.display = "block"   
-      while (parentObject.children.length) {
-          parentObject.remove(parentObject.children[0]);
-      }
-      event.preventDefault();            
-      app_selected_flag = true  
-      disposeOfInactiveAvatar()
-      avatarLoader(selectedAvatar)
-  }        
-});
+// avatarSelector.addEventListener('change', (event) => {        
+//   const selectedAvatar = event.target.value;           
+//   if(selectedAvatar != 0){   
+//       recordingArea.style.display = "none"
+//       responseTextArea.style.display = "none"        
+//       botResponseUIReset();
+//       recBtn3.innerHTML = "Recording start";
+//       recBtn.style.display = 'inline-block';
+//       if(speech){
+//           speech.stopSpeaking();
+//       } 
+//       avatarSelector.disabled = true; 
+//       loading.style.display = "block"   
+//       while (parentObject.children.length) {
+//           parentObject.remove(parentObject.children[0]);
+//       }
+//       event.preventDefault();            
+//       app_selected_flag = true  
+//       avatarLoader(selectedAvatar)
+//   }        
+// });
 
 function sendToChatGPT(voiceInput) {
   console.log("inside");
