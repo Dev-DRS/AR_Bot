@@ -180,53 +180,5 @@
     <script src="script.js"></script>
     <!-- Loads <model-viewer> for browsers: -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            // Directly load 3.glb when the page loads
-            const modelViewer = document.querySelector("#model-viewer");
-      
-            // Trigger AR session automatically when page loads
-            modelViewer.addEventListener("load", () => {
-              // Simulate click on AR button if supported
-              if (modelViewer.canActivateAR) {
-                // Prompt user to enter AR mode if allowed by the browser
-                //modelViewer.activateAR();
-      
-              }
-            });
-              // Listen for AR activation and display buttons
-              modelViewer.addEventListener('ar-status', (event) => {
-                if (event.detail.status === 'session-started') {
-                  $("#ar-buttons").fadeIn();
-                }
-              });
-      
-              // Toggle animation functionality
-              $('#toggle-animation').change(function() {
-                if (this.checked) {
-                  modelViewer.animationName = 'explode';
-                  modelViewer.play();
-                } else {
-                  modelViewer.animationName = '';
-                  modelViewer.pause();
-                }
-              });
-      
-              // Change color functionality
-              $('#change-color').click(function() {
-                const material = modelViewer.model.materials[0];
-                material.pbrMetallicRoughness.setBaseColorFactor([Math.random(), Math.random(), Math.random(), 1]);
-              });
-      // Change scale functionality});
-          });
-    </script>
-
-    <!-- <style>
-      check style.css
-    </style> -->
-
-
-    
   </body>
 </html>

@@ -40,22 +40,47 @@ document.querySelectorAll('.next-button').forEach(button => {
 const settingIcon = document.getElementById('setting-icon');
 
 document.getElementById('start-button').addEventListener('click', function() {
-    document.getElementById('Help').style.display = 'none';
-    document.getElementById('responseText-area').style.display = 'block';
-    document.getElementById('recBtn').style.display = 'block';
-    
-    document.getElementById('menu-open').style.display = 'none';
-    //$('#startModal').modal('hide');
-    // document.getElementById('menu-open').style.display = 'none';
-    // settingIcon.style.display = 'block';
-    document.getElementById('startModal').style.display = 'none';
+  document.getElementById('Help').style.display = 'none';
+  document.getElementById('responseText-area').style.display = 'block';
+  document.getElementById('recBtn').style.display = 'block';
+  document.getElementById('menu-open').style.display = 'none';
+  
+  // Hide the start modal
+  document.getElementById('startModal').style.display = 'none';
 
-    // Trigger AR mode
-    const modelViewer = document.querySelector("#model-viewer");
-    if (modelViewer.canActivateAR) {
-        modelViewer.activateAR(); // Enter AR mode
-    } else {
-        console.warn('AR mode is not supported by your browser.');
-    }
+  // Directly load 3.glb when the page loads
+  const modelViewer = document.querySelector("#model-viewer");
+
+  // Trigger AR session automatically when start button is clicked
+  modelViewer.addEventListener("load", function() {
+      // Simulate click on AR button if supported
+      if (modelViewer.canActivateAR) {
+          modelViewer.activateAR();
+      }
+  });
+
+  // Listen for AR activation and display buttons
+  modelViewer.addEventListener('ar-status', function(event) {
+      if (event.detail.status === 'session-started') {
+          document.getElementById('ar-buttons').style.display = 'block';
+      }
+  });
+
+  // Toggle animation functionality
+  document.getElementById('toggle-animation').addEventListener('change', function() {
+      if (this.checked) {
+          modelViewer.animationName = 'explode';
+          modelViewer.play();
+      } else {
+          modelViewer.animationName = '';
+          modelViewer.pause();
+      }
+  });
+
+  // Change color functionality
+  document.getElementById('change-color').addEventListener('click', function() {
+      const material = modelViewer.model.materials[0];
+      material.pbrMetallicRoughness.setBaseColorFactor([Math.random(), Math.random(), Math.random(), 1]);
+  });
 });
 // Migrated Code //
