@@ -422,7 +422,7 @@ body {
   width: 45px;
   padding: 10px;
   display: none;
-  z-index: 1500;
+  z-index: 2000;
 }
 .Menu{
   color: white;
