@@ -132,7 +132,7 @@
     <!-- Migrated Code -->
 
     <!-- <model-viewer> HTML element -->
-    <model-viewer id="model-viewer" src="3.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="1" autoplay>
+    <model-viewer id="model-viewer" src="Maya_1.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="1" autoplay>
       <div class="progress-bar hide" slot="progress-bar">
         <div class="update-bar"></div>
       </div>
@@ -151,6 +151,31 @@
         </label>
         <button id="change-color">Change Color</button>
       </div>
+
+      <!-- Migrated Code-->
+      <div id="responseText-area">
+        <p id="responseText"></p>
+      </div>
+      <div class="recording-area" id="recording-area">
+        <p id="waiting">Processing...</p>
+        <p id="Speaking">Speaking...</p>
+        <p id="recording">Recording start</p>
+        <img id="botIcon" src="" style="display: none;float: right;">
+        <img id="recBtn" src="images/recording.jpg" alt="recoring-button">
+      </div>
+      <svg id="menu-open" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-gear" viewBox="0 0 16 16">
+          <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0" />
+          <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z" />
+      </svg>
+
+      <div class="Menu" id="menu">
+        <img src="images/Menu Icon.png">
+      </div>
+      <div class="Help" id="Help">
+          <img src="images/Help Icon.png" id="help-icon">
+      </div>
+      <!-- Migrated Code-->
+
     </model-viewer>
     
     <script src="script.js"></script>
@@ -158,44 +183,44 @@
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
 
     <script>
-      $(document).ready(function() {
-        // Directly load 3.glb when the page loads
-        const modelViewer = document.querySelector("#model-viewer");
-
-        // Trigger AR session automatically when page loads
-        modelViewer.addEventListener("load", () => {
-          // Simulate click on AR button if supported
-          if (modelViewer.canActivateAR) {
-            // Prompt user to enter AR mode if allowed by the browser
-         //   modelViewer.activateAR();
-
-          }
-        });
-        
-        // Listen for AR activation and display buttons
-        modelViewer.addEventListener('ar-status', (event) => {
-          if (event.detail.status === 'session-started') {
-            $("#ar-buttons").fadeIn();
-          }
-        });
-
-        // Toggle animation functionality
-        $('#toggle-animation').change(function() {
-          if (this.checked) {
-            modelViewer.animationName = 'explode';
-            modelViewer.play();
-          } else {
-            modelViewer.animationName = '';
-            modelViewer.pause();
-          }
-        });
-
-        // Change color functionality
-        $('#change-color').click(function() {
-          const material = modelViewer.model.materials[0];
-          material.pbrMetallicRoughness.setBaseColorFactor([Math.random(), Math.random(), Math.random(), 1]);
-        });
-      });
+        $(document).ready(function() {
+            // Directly load 3.glb when the page loads
+            const modelViewer = document.querySelector("#model-viewer");
+      
+            // Trigger AR session automatically when page loads
+            modelViewer.addEventListener("load", () => {
+              // Simulate click on AR button if supported
+              if (modelViewer.canActivateAR) {
+                // Prompt user to enter AR mode if allowed by the browser
+             //   modelViewer.activateAR();
+      
+              }
+            });
+              // Listen for AR activation and display buttons
+              modelViewer.addEventListener('ar-status', (event) => {
+                if (event.detail.status === 'session-started') {
+                  $("#ar-buttons").fadeIn();
+                }
+              });
+      
+              // Toggle animation functionality
+              $('#toggle-animation').change(function() {
+                if (this.checked) {
+                  modelViewer.animationName = 'explode';
+                  modelViewer.play();
+                } else {
+                  modelViewer.animationName = '';
+                  modelViewer.pause();
+                }
+              });
+      
+              // Change color functionality
+              $('#change-color').click(function() {
+                const material = modelViewer.model.materials[0];
+                material.pbrMetallicRoughness.setBaseColorFactor([Math.random(), Math.random(), Math.random(), 1]);
+              });
+      // Change scale functionality});
+          });
     </script>
 
     <!-- <style>
@@ -203,27 +228,6 @@
     </style> -->
 
 
-    <!-- Migrated Code-->
-    <div id="responseText-area">
-      <p id="responseText"></p>
-    </div>
-    <div class="recording-area" id="recording-area">
-      <p id="waiting">Processing...</p>
-      <p id="Speaking">Speaking...</p>
-      <p id="recording">Recording start</p>
-      <img id="recBtn" src="images/recording.jpg" alt="recoring-button">
-    </div>
-    <svg id="menu-open" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-gear" viewBox="0 0 16 16">
-        <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0" />
-        <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z" />
-    </svg>
-
-    <div class="Menu" id="menu">
-      <img src="images/Menu Icon.png">
-    </div>
-    <div class="Help" id="Help">
-        <img src="images/Help Icon.png" id="help-icon">
-    </div>
-    <!-- Migrated Code-->
+    
   </body>
 </html>
