@@ -1,0 +1,122 @@
+// sendToChatGPT(voiceInput) {    
+//   console.log("inside");
+  
+//   // comment according to the deployment environment
+//   const apiUrl = 'https://pythonappdrs.azurewebsites.net/chat';
+//   //const apiUrl = 'https://pytestar.azurewebsites.net/chat';
+//   const headers = {
+//     'Content-Type': 'application/json',
+//   };
+  
+//   /*
+//   const data = {
+//     "user_input": voiceInput,
+//     "system_data" : "You are an AI assistant that helps people find information, In accenture we have some policies and guidelines to follow to maintain the company reputation. you should not tell any company policy related questions. You always says thank you in the end of the response"
+//   };
+//   */
+
+//   /*
+//   const data = {
+//     "user_input": voiceInput,
+//     "system_data": "should not give any information about accenture policy. always says thank you in the end"
+//   };
+//   */
+//   const persona = document.getElementById('persona-text').value.replace(/[^a-zA-Z0-9 ,\.]/g, '');
+
+//   const data = {
+//     "user_input": voiceInput,
+//     "system_data": persona
+//   };
+
+//   fetch(apiUrl, {
+//     method: 'POST',
+//     headers: headers,
+//     body: JSON.stringify(data),
+//   })
+//   .then(response => response.json())
+//   .then(result => {
+//     const chatGPTResponse = result.response;
+//     const emotion = result.emotion.label;
+//     this.startSpeaking(chatGPTResponse,emotion);    
+//     const recBtn = document.querySelector('#recBtn');
+//     recBtn.style.display = 'inline-block'            
+//   })
+//   .catch(error => {
+//     console.error('Error:', error)
+//     const recBtn = document.querySelector('#recBtn');
+//     recBtn.style.display = 'inline-block' 
+//     const botIcon = document.querySelector('#botIcon');
+//     const recBtn3 = document.getElementById('recording');
+//     const recBtn4 = document.getElementById('waiting');
+//     const recBtn5 = document.getElementById('Speaking');
+//     recBtn3.style.display = 'none';
+//     recBtn4.style.display = 'none';
+//     recBtn5.style.display = 'none';
+//     botIcon.setAttribute('src','')      
+//     botIcon.style.display = 'none'     
+//   });      
+// }
+
+// async function sendToChatGPT(voiceInput: string): Promise<void> {
+//   console.log("inside");
+
+//   // Define the API URL based on the deployment environment
+//   const apiUrl = 'https://pythonappdrs.azurewebsites.net/chat';
+//   // const apiUrl = 'https://pytestar.azurewebsites.net/chat'; // Uncomment this if needed
+
+//   const headers: HeadersInit = {
+//     'Content-Type': 'application/json',
+//   };
+
+//   // Retrieve and sanitize the persona data from the HTML element
+//   const personaElement = document.getElementById('persona-text') as HTMLInputElement;
+//   const persona = personaElement ? personaElement.value.replace(/[^a-zA-Z0-9 ,\.]/g, '') : '';
+
+//   // Prepare the data to be sent to the API
+//   const data = {
+//     user_input: voiceInput,
+//     system_data: persona,
+//   };
+
+//   try {
+//     // Send the request to the API
+//     const response = await fetch(apiUrl, {
+//       method: 'POST',
+//       headers: headers,
+//       body: JSON.stringify(data),
+//     });
+
+//     // Parse the JSON response
+//     const result = await response.json();
+
+//     // Extract and process the response data
+//     const chatGPTResponse: string = result.response;
+//     const emotion: string = result.emotion.label;
+
+//     // Handle the response (e.g., start speaking and update the UI)
+//     startSpeaking(chatGPTResponse, emotion);
+//     const recBtn = document.querySelector('#recBtn') as HTMLElement;
+//     recBtn.style.display = 'inline-block';
+
+//   } catch (error) {
+//     // Handle errors (e.g., update the UI to reflect the error state)
+//     console.error('Error:', error);
+
+//     const recBtn = document.querySelector('#recBtn') as HTMLElement;
+//     recBtn.style.display = 'inline-block';
+
+//     const botIcon = document.querySelector('#botIcon') as HTMLImageElement;
+//     const recBtn3 = document.getElementById('recording') as HTMLElement;
+//     const recBtn4 = document.getElementById('waiting') as HTMLElement;
+//     const recBtn5 = document.getElementById('Speaking') as HTMLElement;
+
+//     if (recBtn3) recBtn3.style.display = 'none';
+//     if (recBtn4) recBtn4.style.display = 'none';
+//     if (recBtn5) recBtn5.style.display = 'none';
+//     if (botIcon) {
+//       botIcon.setAttribute('src', '');
+//       botIcon.style.display = 'none';
+//     }
+//   }
+// }
+

@@ -39,30 +39,79 @@ document.querySelectorAll('.next-button').forEach(button => {
 // Function to show only the settings icon
 const settingIcon = document.getElementById('setting-icon');
 
-document.getElementById('start-button').addEventListener('click', function() {
-  document.getElementById('Help').style.display = 'none';
-  document.getElementById('responseText-area').style.display = 'block';
-  document.getElementById('recBtn').style.display = 'block';
-  document.getElementById('menu-open').style.display = 'none';
-  
-  // Hide the start modal
-  document.getElementById('startModal').style.display = 'none';
+// document.addEventListener('DOMContentLoaded', function() {
+//     const modelViewer = document.querySelector("#model-viewer");
 
-  // Directly load 3.glb when the page loads
+//     // Function to activate AR mode
+//     function activateAR() {
+//         if (modelViewer.canActivateAR) {
+//             modelViewer.activateAR();
+//         }
+//     }
+
+//     // Event listener for the Start button
+//     document.getElementById('start-button').addEventListener('click', function() {
+//         document.getElementById('Help').style.display = 'none';
+//         document.getElementById('responseText-area').style.display = 'block';
+//         document.getElementById('recBtn').style.display = 'block';
+//         document.getElementById('menu-open').style.display = 'none';
+//         document.getElementById('startModal').style.display = 'none';
+
+//         // Activate AR mode
+//         activateAR();
+//     });
+
+//     // Listen for AR activation and display buttons
+//     modelViewer.addEventListener('ar-status', (event) => {
+//         if (event.detail.status === 'session-started') {
+//             document.getElementById('ar-buttons').style.display = 'block'; // Use JavaScript to show buttons
+//         }
+//     });
+
+//     // Toggle animation functionality
+//     document.getElementById('toggle-animation').addEventListener('change', function() {
+//         if (this.checked) {
+//             modelViewer.animationName = 'explode';
+//             modelViewer.play();
+//         } else {
+//             modelViewer.animationName = '';
+//             modelViewer.pause();
+//         }
+//     });
+
+//     // Change color functionality
+//     document.getElementById('change-color').addEventListener('click', function() {
+//         const material = modelViewer.model.materials[0];
+//         material.pbrMetallicRoughness.setBaseColorFactor([Math.random(), Math.random(), Math.random(), 1]);
+//     });
+// });
+
+document.addEventListener('DOMContentLoaded', function() {
   const modelViewer = document.querySelector("#model-viewer");
 
-  // Trigger AR session automatically when start button is clicked
-  modelViewer.addEventListener("load", function() {
-      // Simulate click on AR button if supported
+  // Function to activate AR mode
+  function activateAR() {
       if (modelViewer.canActivateAR) {
           modelViewer.activateAR();
       }
+  }
+
+  // Event listener for the Start button
+  document.getElementById('start-button').addEventListener('click', function() {
+      document.getElementById('Help').style.display = 'none';
+      document.getElementById('responseText-area').style.display = 'block';
+      document.getElementById('recBtn').style.display = 'block';
+      document.getElementById('menu-open').style.display = 'none';
+      document.getElementById('startModal').style.display = 'none';
+
+      // Activate AR mode
+      activateAR();
   });
 
   // Listen for AR activation and display buttons
-  modelViewer.addEventListener('ar-status', function(event) {
+  modelViewer.addEventListener('ar-status', (event) => {
       if (event.detail.status === 'session-started') {
-          document.getElementById('ar-buttons').style.display = 'block';
+          document.getElementById('ar-buttons').style.display = 'block'; // Use JavaScript to show buttons
       }
   });
 
@@ -83,4 +132,6 @@ document.getElementById('start-button').addEventListener('click', function() {
       material.pbrMetallicRoughness.setBaseColorFactor([Math.random(), Math.random(), Math.random(), 1]);
   });
 });
+
+
 // Migrated Code //
