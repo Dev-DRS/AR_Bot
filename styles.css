@@ -417,13 +417,16 @@ body {
   padding: 10px;
 }
 
-.recording-area #recBtn{
+.recording-area #recBtn {
   border-radius: 150px;
   width: 45px;
   padding: 10px;
-  display: none;
-  z-index: 1500;
+  display: block;
+  z-index: 2000; /* Increase z-index */
+  position: fixed; /* Ensure the button is fixed */
+  pointer-events: auto; /* Ensure pointer events are enabled */
 }
+
 .Menu{
   color: white;
   z-index: 1;
