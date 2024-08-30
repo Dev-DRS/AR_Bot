@@ -384,7 +384,7 @@ body {
 }
 
 .recording-area {
-  z-index: 1000;
+  z-index: 1500;
   position: fixed;
   bottom: 0;
   right: 0;
@@ -422,6 +422,7 @@ body {
   width: 45px;
   padding: 10px;
   display: none;
+  z-index: 1500;
 }
 .Menu{
   color: white;
