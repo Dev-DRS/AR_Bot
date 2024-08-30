@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('responseText-area').style.display = 'block';
       document.getElementById('recBtn').style.display = 'block';
       document.getElementById('menu-open').style.display = 'none';
-      document.getElementById('startModal').style.display = 'none';
+      //document.getElementById('startModal').style.display = 'none';
 
       // Activate AR mode
       activateAR();
