@@ -49,5 +49,13 @@ document.getElementById('start-button').addEventListener('click', function() {
     // document.getElementById('menu-open').style.display = 'none';
     // settingIcon.style.display = 'block';
     document.getElementById('startModal').style.display = 'none';
+
+    // Trigger AR mode
+    const modelViewer = document.querySelector("#model-viewer");
+    if (modelViewer.canActivateAR) {
+        modelViewer.activateAR(); // Enter AR mode
+    } else {
+        console.warn('AR mode is not supported by your browser.');
+    }
 });
 // Migrated Code //
