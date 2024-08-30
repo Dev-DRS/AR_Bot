@@ -192,9 +192,67 @@ body {
   cursor: pointer;
 }
 
+
+.recording-area {
+
+  position: absolute;
+  bottom: 10px;
+  right: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  text-align: center;
+  display: block;
+  font-weight: bold;
+  color: #fffd15;
+  /* z-index: 1500;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  color: #fffd15;
+  font-size: 12px;
+  width: 20%;
+  text-align: center;
+  display: block;
+  font-weight: bold; */
+}
+.recording-area p{
+  margin: 0px !important;
+}
+
 .ar-buttons button:hover {
   background-color: #0b7dda;
 }
+
+#botIcon{
+  height: 30px;
+    width: 30px;
+    margin-right: 10px;
+}
+.recording-area #waiting{
+  display: none;
+  padding: 10px;
+}
+.recording-area #Speaking{
+  display: none;
+  padding: 10px;
+}
+
+.recording-area #recording{
+  display: none;
+  padding: 10px;
+}
+
+.recording-area #recBtn{
+  border-radius: 150px;
+  width: 45px;
+  padding: 10px;
+  display: none;
+  z-index: 1500;
+}
+
+
+
+
 
 /* Toggle Switch */
 .switch {
@@ -383,47 +441,8 @@ body {
   border-radius: 0.3rem;
 }
 
-.recording-area {
-  z-index: 1500;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  color: #fffd15;
-  font-size: 12px;
-  width: 20%;
-  text-align: center;
-  display: block;
-  font-weight: bold;
-}
-.recording-area p{
-  margin: 0px !important;
-}
-#botIcon{
-  height: 30px;
-    width: 30px;
-    margin-right: 10px;
-}
-.recording-area #waiting{
-  display: none;
-  padding: 10px;
-}
-.recording-area #Speaking{
-  display: none;
-  padding: 10px;
-}
 
-.recording-area #recording{
-  display: none;
-  padding: 10px;
-}
 
-.recording-area #recBtn{
-  border-radius: 150px;
-  width: 45px;
-  padding: 10px;
-  display: none;
-  z-index: 1500;
-}
 .Menu{
   color: white;
   z-index: 1;
