@@ -1,4 +1,5 @@
 // Handles loading the events for <model-viewer>'s slotted progress bar
+
 const onProgress = (event) => {
   const progressBar = event.target.querySelector('.progress-bar');
   const updatingBar = event.target.querySelector('.update-bar');
@@ -48,7 +49,5 @@ document.getElementById('start-button').addEventListener('click', function() {
     // document.getElementById('menu-open').style.display = 'none';
     // settingIcon.style.display = 'block';
     document.getElementById('startModal').style.display = 'none';
-    
 });
-
 // Migrated Code //
