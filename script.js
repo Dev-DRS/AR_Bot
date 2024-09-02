@@ -115,23 +115,23 @@ document.addEventListener('DOMContentLoaded', function() {
       }
   });
 
-  // Toggle animation functionality
-  document.getElementById('toggle-animation').addEventListener('change', function() {
-      if (this.checked) {
-          modelViewer.animationName = 'explode';
-          modelViewer.play();
-      } else {
-          modelViewer.animationName = '';
-          modelViewer.pause();
-      }
-  });
+//   // Toggle animation functionality
+//   document.getElementById('toggle-animation').addEventListener('change', function() {
+//       if (this.checked) {
+//           modelViewer.animationName = 'explode';
+//           modelViewer.play();
+//       } else {
+//           modelViewer.animationName = '';
+//           modelViewer.pause();
+//       }
+//   });
 
-  // Change color functionality
-  document.getElementById('change-color').addEventListener('click', function() {
-      const material = modelViewer.model.materials[0];
-      material.pbrMetallicRoughness.setBaseColorFactor([Math.random(), Math.random(), Math.random(), 1]);
-  });
-});
+//   // Change color functionality
+//   document.getElementById('change-color').addEventListener('click', function() {
+//       const material = modelViewer.model.materials[0];
+//       material.pbrMetallicRoughness.setBaseColorFactor([Math.random(), Math.random(), Math.random(), 1]);
+//   });
+ });
 
 document.getElementById('recBtn').addEventListener('click', function() {
     document.getElementById('responseText').textContent = 'test';
