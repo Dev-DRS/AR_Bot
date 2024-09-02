@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
       //document.getElementById('startModal').style.display = 'none';
 
       // Activate AR mode
-      activateAR();
+    //   activateAR();
   });
 
   // Listen for AR activation and display buttons
