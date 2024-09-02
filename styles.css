@@ -19,8 +19,8 @@ model-viewer {
   height: 100%; /* Adjusted height */
   background-color: #888888;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 20%;
+  left: 20%;
   transform: translate(-50%, -50%);
 
 }
@@ -99,8 +99,8 @@ model-viewer {
 
 model-viewer > #ar-prompt {
   position: absolute;
-  left: 30%;
-  bottom: 40px;
+  left: 100%;
+  bottom: 100px;
   animation: elongate 2s infinite ease-in-out alternate;
   display: none;
 }
