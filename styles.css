@@ -15,15 +15,18 @@ body {
 }
 
 model-viewer {
-  width: 100%; /* Adjusted width */
-  height: 100%; /* Adjusted height */
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
   background-image: url('3d_image.jpg'); /* Add background image */
   background-size: cover; /* Ensures the image covers the entire element */
   background-position: center; /* Centers the background image */
-  position: absolute;
-  /* top: 40%;
-  left: 40%; */
-  transform: translate(-50%, -50%);
+  position: fixed; /* Fixes the element relative to the viewport */
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  /* z-index: -1; Sends it to the background */
 }
 
 
