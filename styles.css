@@ -21,8 +21,8 @@ model-viewer {
   background-size: cover; /* Ensures the image covers the entire element */
   background-position: center; /* Centers the background image */
   position: absolute;
-  top: 40%;
-  left: 40%;
+  /* top: 40%;
+  left: 40%; */
   transform: translate(-50%, -50%);
 }
 
