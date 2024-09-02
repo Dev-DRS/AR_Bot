@@ -17,13 +17,15 @@ body {
 model-viewer {
   width: 100%; /* Adjusted width */
   height: 100%; /* Adjusted height */
-  background-color: #888888;
+  background-image: url('3d_image.jpg'); /* Add background image */
+  background-size: cover; /* Ensures the image covers the entire element */
+  background-position: center; /* Centers the background image */
   position: absolute;
   top: 40%;
   left: 40%;
   transform: translate(-50%, -50%);
-
 }
+
 
 .progress-bar {
   display: block;
