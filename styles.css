@@ -18,7 +18,7 @@ model-viewer {
   width: 100vw; /* Full viewport width */
   height: 100vh; /* Full viewport height */
   background-image: url('3d_images.jpg'); /* Add background image */
-  background-size: contain; /* Ensures the image covers the entire element */
+  background-size: cover; /* Ensures the image covers the entire element */
   background-position: center -250px
   ; /* Centers the background image */
   position: fixed; /* Fixes the element relative to the viewport */
