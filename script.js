@@ -133,5 +133,8 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+document.getElementById('recBtn').addEventListener('click', function() {
+    document.getElementById('responseText').textContent = 'test';
+});
 
 // Migrated Code //
