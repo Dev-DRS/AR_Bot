@@ -60,39 +60,6 @@ model-viewer {
   transition: width 0.3s;
 }
 
-#ar-button {
-  background-image: url(ar_icon.png);
-  background-repeat: no-repeat;
-  background-size: 20px 20px;
-  background-position: 12px 50%;
-  background-color: #fff;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  white-space: nowrap;
-  bottom: 16px;
-  padding: 0px 16px 0px 40px;
-  font-family: Roboto Regular, Helvetica Neue, sans-serif;
-  font-size: 14px;
-  color:#4285f4;
-  height: 36px;
-  line-height: 36px;
-  border-radius: 18px;
-  border: 1px solid #DADCE0;
-}
-
-#ar-button:active {
-  background-color: #E8EAED;
-}
-
-#ar-button:focus {
-  outline: none;
-}
-
-#ar-button:focus-visible {
-  outline: 1px solid #4285f4;
-}
-
 @keyframes circle {
   from { transform: translateX(-50%) rotate(0deg) translateX(50px) rotate(0deg); }
   to   { transform: translateX(-50%) rotate(360deg) translateX(50px) rotate(-360deg); }
@@ -173,31 +140,6 @@ body {
   display: none;
 }
 
-#VRButton {
-  margin-bottom: 70px !important;
-}
-
-
-/* AR Button */
-/* Style for AR overlay buttons */
-.ar-buttons {
-  position: absolute;
-  bottom: 10px;
-  right: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
-}
-
-.ar-buttons button {
-  background-color: #2196F3;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  margin: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
 
 .recording-area {
   z-index: 1500;
@@ -213,10 +155,6 @@ body {
 }
 .recording-area p{
   margin: 0px !important;
-}
-
-.ar-buttons button:hover {
-  background-color: #0b7dda;
 }
 
 #botIcon{
@@ -246,64 +184,7 @@ body {
   z-index: 1500;
 }
 
-
-
-
-
-/* Toggle Switch */
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
-
-.switch input { 
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: .4s;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  transition: .4s;
-}
-
-input:checked + .slider {
-  background-color: #2196F3;
-}
-
-input:checked + .slider:before {
-  transform: translateX(26px);
-}
-
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
-}
 /* Migrated Code */
-@import 'fonts.css';
-@import 'icons.css';
 
 html,
 body {
@@ -848,7 +729,7 @@ input:checked + .slider:before {
 .chat{
 	position: fixed;
   bottom: 10px;
-  left: 30px;
+  left: 250px;
 	margin-top: auto;
 	margin-bottom: auto;
 }

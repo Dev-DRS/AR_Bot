@@ -46,97 +46,8 @@
     </script>
   </head>
   <body>
-
-    <!-- Migrated Code -->
-
-    <div class="main-content">
-      <div id="loadingModal1" class="modal" tabindex="-1" role="dialog" style="display: block;">
-          <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                  <div class="modal-header-load">
-                      <h5 class="modal-title-load">DRS Assistant</h5>
-                  </div>
-                  <div class="modal-body">
-                      <span>
-                          You have come to the most interactive offering technology has to offer today.
-                          <br>
-                          <br>
-                          The Digital Rhombus Studios assistant will help you understand about our services and capability.
-                          <br>
-                          <br>
-                          This will be a fun experience for you, and us!
-                      </span>
-                  </div>
-                  <div class="modal-footer-load">
-                      <button type="button" class="btn btn-primary next-button" data-next="loadingModal2">
-                          NEXT &gt;
-                      </button>
-                  </div>
-              </div>
-          </div>
-      </div>
-
-      <!-- Second Modal -->
-      <div id="loadingModal2" class="modal" tabindex="-1" role="dialog" style="display: none;">
-          <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                  <div class="modal-header-load">
-                      <h5 class="modal-title-load">Guide</h5>
-                  </div>
-                  <div class="modal-body">
-                      <div id="icon-container">
-                          <div id="place-icon" class="icon-item" style="align-items: center;">
-                              <img id="place" src="images/place.png">
-                              <div style="color: #fff;">
-                                  <span style="color: #fff;">Tap to Place</span>
-                              </div>
-                          </div>
-                          <div id="swipe-icon" class="icon-item" style="align-items: center;">
-                              <img id="swipe" src="images/swipe.png">
-                              <div style="color: #fff;">
-                                  <span style="color: #fff;">Swipe to Rotate</span>
-                              </div>
-                          </div>
-                          <div id="pinch-icon" class="icon-item" style="align-items: center;">
-                              <img id="pinch" src="images/pinch.png">
-                              <div style="color: #fff;">
-                                  <span style="color: #fff;">Pinch to Resize</span>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="modal-footer-load">
-                      <button type="button" class="btn btn-primary next-button" data-next="loadingModal3">
-                          NEXT &gt;
-                      </button>
-                  </div>
-              </div>
-          </div>
-      </div>
-
-      <!-- Third Modal -->
-      <div id="loadingModal3" class="modal" tabindex="-1" role="dialog" style="display: none;">
-          <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                  <div class="modal-header-load">
-                      <h5 class="modal-title-load">Guide</h5>
-                  </div>
-                  <div class="modal-body">
-                      <span>Tap anywhere on the floor to spawn the virtual assistant!</span>
-                  </div>
-                  <div class="modal-footer-load">
-                      <button type="button" class="btn next-button" data-next="done" id="start-button" data-dismiss="start-modal">
-                          START &gt;
-                      </button>
-                  </div>
-              </div>
-          </div>
-      </div>
-
-    <!-- Migrated Code -->
-
     <!-- <model-viewer> HTML element -->
-    <model-viewer id="model-viewer" src="Camila.glb" environment-image="modern_bathroom_1k.hdr" camera-target="-0.8m 1.1m" camera-orbit="0deg 90deg 4m" ar="" ar-modes="webxr scene-viewer quick-look" disable-zoom="" interaction-prompt="none" tone-mapping="neutral" poster="poster.webp" shadow-intensity="1" shadow-softness="1" autoplay>
+    <model-viewer id="model-viewer" src="Camila.glb" environment-image="modern_bathroom_1k.hdr" camera-target="-0.8m 1m" camera-orbit="0deg 90deg 4m" ar="" ar-modes="webxr scene-viewer quick-look" disable-zoom="" interaction-prompt="none" tone-mapping="neutral" poster="poster.webp" shadow-intensity="1" shadow-softness="1" autoplay>
       <div class="progress-bar hide" slot="progress-bar">
         <div class="update-bar"></div>
       </div>
@@ -146,21 +57,6 @@
       <div id="ar-prompt">
         <img src="ar_hand_prompt.png">
       </div>
-
-      <!-- Overlay Buttons -->
-      <!-- <div class="ar-buttons" id="ar-buttons" style="display: none;">
-        <label class="switch">
-          <input type="checkbox" id="toggle-animation">
-          <span class="slider round"></span>
-        </label>
-        <p id="waiting">Processing...</p>
-        <p id="Speaking">Speaking...</p>
-        <p id="recording">Recording start</p>
-        <img id="botIcon" src="" style="display: none;float: right;">
-        <img id="recBtn" src="images/recording.jpg" alt="recoring-button">
-        
-        <button id="change-color">Change Color</button>
-      </div>  -->
       <!-- Chat Template -->
         <div class="container-fluid h-100">
             <div class="row justify-content-left h-100">		
@@ -212,10 +108,6 @@
         </script>
        <!-- Chat Template -->
        <!-- Migrated Code-->
-       <div id="responseText-area">
-        <p id="responseText"></p>
-         <!-- <input id="responseText" type="text" placeholder="Type a message" > -->
-        </div>
         <div class="recording-area" id="recording-area">
             <p id="waiting">Processing...</p>
             <p id="Speaking">Speaking...</p>
